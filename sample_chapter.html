@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Sample Chapter — Instagram Agent Ebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold:     #C9A84C;
+  --gold-lt:  #E8D08A;
+  --navy:     #0B1829;
+  --navy-lt:  #132236;
+  --cream:    #F7F2E8;
+  --cream-lt: #FDFAF5;
+  --muted:    #6B6560;
+  --green:    #52C47A;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream-lt);
+  color: #1C1C1E;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ── TOP NAV BAR ── */
+.top-nav {
+  position: sticky; top: 0;
+  background: rgba(11,24,41,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 14px 24px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+  z-index: 100;
+}
+
+.nav-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: rgba(247,242,232,0.6);
+  font-size: 13px; font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.nav-back:hover { color: var(--gold-lt); }
+
+.nav-back svg { transition: transform 0.2s; }
+.nav-back:hover svg { transform: translateX(-3px); }
+
+.nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; font-weight: 600;
+  color: rgba(247,242,232,0.7);
+  flex: 1; text-align: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.nav-buy {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--gold); color: var(--navy);
+  font-size: 13px; font-weight: 600;
+  padding: 8px 18px; border-radius: 8px;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+}
+
+.nav-buy:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+/* ── SAMPLE HERO ── */
+.sample-hero {
+  background: var(--navy);
+  padding: 64px 24px 80px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+
+.sample-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.14) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.sample-hero-inner { max-width: 640px; margin: 0 auto; position: relative; }
+
+.sample-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--green);
+  border: 1px solid rgba(82,196,122,0.3);
+  background: rgba(82,196,122,0.08);
+  padding: 6px 16px; border-radius: 99px; margin-bottom: 24px;
+}
+
+.sample-badge::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green);
+}
+
+.sample-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 700; color: var(--cream-lt);
+  line-height: 1.15; letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.sample-hero h1 em { color: var(--gold-lt); font-style: italic; }
+
+.sample-hero p {
+  font-size: 16px; font-weight: 300;
+  color: rgba(247,242,232,0.55);
+  margin-bottom: 32px; line-height: 1.75;
+}
+
+.sample-hero-ctas {
+  display: flex; gap: 10px;
+  justify-content: center; flex-wrap: wrap;
+}
+
+.btn-hero-buy {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: var(--navy);
+  font-size: 14px; font-weight: 600;
+  padding: 13px 26px; border-radius: 10px;
+  text-decoration: none; transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+}
+
+.btn-hero-buy:hover {
+  background: var(--gold-lt);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(201,168,76,0.4);
+}
+
+.btn-hero-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: rgba(247,242,232,0.65);
+  font-size: 14px; font-weight: 400;
+  padding: 13px 22px; border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid rgba(247,242,232,0.18);
+  transition: all 0.2s;
+}
+
+.btn-hero-back:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+/* Wave divider */
+.wave { background: var(--navy); line-height: 0; }
+.wave svg { display: block; width: 100%; }
+
+/* ── CHAPTER CONTENT ── */
+.chapter-wrap { max-width: 720px; margin: 0 auto; padding: 60px 24px; }
+
+.ch-eyebrow {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+
+.ch-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 5vw, 50px);
+  font-weight: 700; color: var(--navy);
+  line-height: 1.15; letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.ch-intro {
+  font-size: 17px; font-weight: 300; color: var(--muted);
+  line-height: 1.85; margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.ch-h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 600; color: var(--navy);
+  margin: 44px 0 14px; letter-spacing: -0.01em;
+}
+
+.ch-p { font-size: 15px; color: #2C2C2E; line-height: 1.85; margin-bottom: 18px; }
+
+/* Step list */
+.step-list { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 28px; }
+
+.step-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: white; border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 12px; padding: 14px 18px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.step-n {
+  min-width: 28px; height: 28px;
+  border-radius: 50%; background: var(--navy);
+  color: var(--gold-lt);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+.step-t { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+.step-d { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* Callouts */
+.callout {
+  border-radius: 12px; padding: 16px 20px;
+  margin: 20px 0; display: flex; gap: 12px; align-items: flex-start;
+}
+
+.callout.tip  { background: rgba(82,196,122,0.08);  border: 1px solid rgba(82,196,122,0.2); }
+.callout.warn { background: rgba(255,184,108,0.08); border: 1px solid rgba(255,184,108,0.2); }
+.callout.info { background: rgba(91,155,213,0.08);  border: 1px solid rgba(91,155,213,0.2); }
+.callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.callout-text { font-size: 13px; line-height: 1.7; }
+.callout.tip  .callout-text { color: #3A9E5F; }
+.callout.warn .callout-text { color: #C07830; }
+.callout.info .callout-text { color: #2A6090; }
+
+/* Code */
+.code-block {
+  background: var(--navy); border-radius: 12px;
+  padding: 18px 22px; margin: 18px 0; overflow-x: auto;
+  border: 1px solid rgba(201,168,76,0.12);
+}
+
+.code-block code {
+  font-family: 'DM Mono', monospace; font-size: 13px;
+  color: #E8D5A0; line-height: 1.8; white-space: pre; display: block;
+}
+
+.code-comment { color: rgba(232,213,160,0.35); }
+.code-key     { color: #7DD898; }
+.code-val     { color: #82CFFF; }
+
+/* Table */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: var(--navy); color: var(--gold-lt); font-weight: 500; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 11px 14px; text-align: left; }
+th:first-child { border-radius: 8px 0 0 0; }
+th:last-child  { border-radius: 0 8px 0 0; }
+td { padding: 11px 14px; border-bottom: 1px solid rgba(0,0,0,0.06); color: #2C2C2E; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: rgba(201,168,76,0.03); }
+
+/* ── BLUR LOCK ── */
+.blur-lock { position: relative; margin-top: 40px; }
+
+.blur-content {
+  filter: blur(5px);
+  user-select: none; pointer-events: none; opacity: 0.5;
+}
+
+.lock-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: linear-gradient(to bottom, rgba(253,250,245,0) 0%, rgba(253,250,245,0.9) 25%, rgba(253,250,245,1) 55%);
+  text-align: center; padding: 40px 24px 60px;
+}
+
+.lock-icon { font-size: 36px; margin-bottom: 14px; }
+
+.lock-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 700;
+  color: var(--navy); margin-bottom: 10px;
+}
+
+.lock-desc {
+  font-size: 14px; color: var(--muted);
+  margin-bottom: 28px; max-width: 360px; line-height: 1.7;
+}
+
+.lock-price {
+  display: flex; align-items: baseline; gap: 8px;
+  justify-content: center; margin-bottom: 20px;
+}
+
+.lock-price-strike {
+  font-size: 14px; color: rgba(0,0,0,0.3);
+  text-decoration: line-through;
+}
+
+.lock-price-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px; font-weight: 700; color: var(--navy);
+}
+
+.lock-price-note { font-size: 12px; color: var(--muted); }
+
+.btn-lock-buy {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: var(--navy);
+  font-size: 15px; font-weight: 600;
+  padding: 14px 32px; border-radius: 12px;
+  text-decoration: none; transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+  margin-bottom: 12px;
+}
+
+.btn-lock-buy:hover {
+  background: var(--gold-lt);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(201,168,76,0.45);
+}
+
+.btn-lock-back {
+  display: block;
+  font-size: 13px; color: var(--muted);
+  text-decoration: none; margin-top: 8px;
+  transition: color 0.2s;
+}
+
+.btn-lock-back:hover { color: var(--navy); }
+
+/* ── BOTTOM SECTION ── */
+.bottom-cta {
+  background: var(--navy);
+  padding: 80px 24px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.bottom-cta-inner { max-width: 540px; margin: 0 auto; }
+
+.bottom-cta h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 700; color: var(--cream-lt);
+  line-height: 1.2; margin-bottom: 14px;
+}
+
+.bottom-cta h2 em { color: var(--gold-lt); font-style: italic; }
+
+.bottom-cta p {
+  font-size: 15px; font-weight: 300;
+  color: rgba(247,242,232,0.5);
+  margin-bottom: 32px; line-height: 1.75;
+}
+
+.bottom-cta-btns {
+  display: flex; gap: 12px;
+  justify-content: center; flex-wrap: wrap;
+}
+
+.btn-bottom-buy {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: var(--navy);
+  font-size: 15px; font-weight: 600;
+  padding: 15px 30px; border-radius: 12px;
+  text-decoration: none; transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+}
+
+.btn-bottom-buy:hover {
+  background: var(--gold-lt);
+  transform: translateY(-2px);
+}
+
+.btn-bottom-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: rgba(247,242,232,0.65);
+  font-size: 15px; font-weight: 400;
+  padding: 15px 24px; border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(247,242,232,0.18);
+  transition: all 0.2s;
+}
+
+.btn-bottom-back:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+/* ── STICKY BUY BAR ── */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(11,24,41,0.97);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(201,168,76,0.2);
+  padding: 12px 24px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.sticky-bar.visible { transform: translateY(0); }
+
+.sticky-price {
+  display: flex; align-items: baseline; gap: 8px; flex-shrink: 0;
+}
+
+.sticky-price-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 700; color: var(--gold-lt);
+}
+
+.sticky-price-strike {
+  font-size: 12px; color: rgba(247,242,232,0.3);
+  text-decoration: line-through;
+}
+
+.sticky-label {
+  flex: 1; font-size: 13px;
+  color: rgba(247,242,232,0.5); font-weight: 300;
+}
+
+.sticky-btn {
+  background: var(--gold); color: var(--navy);
+  font-size: 13px; font-weight: 600;
+  padding: 9px 20px; border-radius: 9px;
+  text-decoration: none; transition: all 0.2s;
+  white-space: nowrap; flex-shrink: 0;
+}
+
+.sticky-btn:hover { background: var(--gold-lt); }
+
+@media (max-width: 480px) {
+  .sticky-label { display: none; }
+  .nav-title { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOP NAV ── -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Kembali
+  </a>
+  <span class="nav-title">Instagram Agent Ebook — Sample Chapter</span>
+  <a href="YOUR_PAYMENT_LINK" class="nav-buy">🛒 Beli Rp99rb</a>
+</nav>
+
+<!-- ── SAMPLE HERO ── -->
+<section class="sample-hero">
+  <div class="sample-hero-inner">
+    <div class="sample-badge">Bab 1 — Gratis untuk Dibaca</div>
+    <h1>Pengenalan &amp;<br><em>Arsitektur System</em></h1>
+    <p>Baca bab pertama secara lengkap sebelum memutuskan untuk membeli. Tidak perlu kartu kredit.</p>
+    <div class="sample-hero-ctas">
+      <a href="YOUR_PAYMENT_LINK" class="btn-hero-buy">🛒 Beli Sekarang — Rp99.000</a>
+      <a href="index.html" class="btn-hero-back">← Kembali ke Halaman Utama</a>
+    </div>
+  </div>
+</section>
+
+<div class="wave">
+  <svg viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,25 C360,50 1080,0 1440,25 L1440,50 L0,50 Z" fill="#FDFAF5"/>
+  </svg>
+</div>
+
+<!-- ── CHAPTER CONTENT ── -->
+<div class="chapter-wrap">
+
+  <div class="ch-eyebrow">Bab 01 dari 07</div>
+  <h1 class="ch-title">Pengenalan &amp; Arsitektur</h1>
+
+  <p class="ch-intro">
+    Panduan ini mendokumentasikan cara membangun Instagram content agent yang
+    sepenuhnya otomatis — menghasilkan postingan menggunakan AI, mengupload gambar,
+    dan mempublish ke Instagram &amp; Facebook setiap hari tanpa kamu perlu melakukan apapun.
+    Tidak butuh latar belakang coding. Setiap error yang mungkin kamu temui
+    sudah didokumentasikan beserta solusi tepatnya.
+  </p>
+
+  <h2 class="ch-h3">Apa yang Dilakukan Agent</h2>
+
+  <p class="ch-p">Setiap hari pada waktu yang sudah dijadwalkan, agent berjalan di server GitHub dan menyelesaikan 5 langkah secara otomatis — tanpa kamu perlu melakukan apapun:</p>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-n">1</div>
+      <div>
+        <div class="step-t">Cek Token</div>
+        <div class="step-d">Memverifikasi bahwa Meta access token kamu masih valid. Auto-refresh jika akan habis dalam 5 hari — kamu tidak pernah kehilangan akses.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">2</div>
+      <div>
+        <div class="step-t">Pembuatan Konten via Claude AI</div>
+        <div class="step-d">Memanggil Claude API untuk menulis postingan lengkap — hook, caption, slide carousel, 30 hashtag, dan image prompt. Bahasa bergantian antara Bahasa Indonesia dan Inggris sesuai hari.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">3</div>
+      <div>
+        <div class="step-t">Pipeline Gambar</div>
+        <div class="step-d">Mengambil gambar unik untuk setiap slide dari Unsplash (gratis), lalu menguploadnya ke Cloudinary untuk mendapatkan URL publik yang bisa diakses oleh API Meta.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">4</div>
+      <div>
+        <div class="step-t">Publish ke Instagram</div>
+        <div class="step-d">Mempublish ke Instagram via Meta Graph API resmi — single image atau carousel tergantung hari dalam seminggu.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">5</div>
+      <div>
+        <div class="step-t">Cross-Post ke Facebook</div>
+        <div class="step-d">Opsional — cross-post konten yang sama ke Facebook Page kamu secara bersamaan, menjangkau kedua audiens sekaligus.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ch-h3">Technology Stack</h2>
+
+  <p class="ch-p">Setiap layanan yang digunakan dalam panduan ini gratis atau biayanya kurang dari harga satu kopi per bulan:</p>
+
+  <div class="callout info">
+    <span class="callout-icon">ℹ️</span>
+    <p class="callout-text"><strong>Claude API</strong> — menghasilkan caption, slide, dan hashtag. Biaya: sekitar Rp15.000–75.000/bulan dengan 1 postingan per hari. Top-up Rp75.000 bisa bertahan beberapa bulan.</p>
+  </div>
+
+  <div class="callout tip">
+    <span class="callout-icon">✅</span>
+    <p class="callout-text"><strong>Unsplash + Cloudinary + GitHub Actions + GitHub Pages</strong> — semuanya sepenuhnya gratis. Nol biaya hosting, nol server, nol biaya bulanan.</p>
+  </div>
+
+  <div class="callout warn">
+    <span class="callout-icon">⚠️</span>
+    <p class="callout-text"><strong>Meta Graph API</strong> — gratis tapi ada batas 25 postingan/hari. Dengan 1 postingan/hari kamu tidak akan pernah mencapai batas ini. Saat testing setup mungkin kamu kena — reset setiap pukul 07:00 WIB.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Layer</th><th>Layanan</th><th>Fungsi</th><th>Biaya</th></tr></thead>
+      <tbody>
+        <tr><td>AI Konten</td><td>Claude API</td><td>Generate caption, slide, hashtag</td><td>~Rp75rb/bln</td></tr>
+        <tr><td>Gambar</td><td>Unsplash API</td><td>Foto stok gratis per slide</td><td>Gratis</td></tr>
+        <tr><td>Hosting Gambar</td><td>Cloudinary</td><td>URL publik untuk Meta API</td><td>Gratis 25GB</td></tr>
+        <tr><td>Posting</td><td>Meta Graph API</td><td>Publish ke Instagram &amp; Facebook</td><td>Gratis</td></tr>
+        <tr><td>Penjadwalan</td><td>GitHub Actions</td><td>Jalankan agent harian</td><td>Gratis</td></tr>
+        <tr><td>Bio Link</td><td>GitHub Pages</td><td>Host halaman link afiliasi</td><td>Gratis</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="ch-h3">Strategi Konten — 17 Pilar, 2 Bahasa</h2>
+
+  <p class="ch-p">Agent tidak hanya posting sembarangan. Ia mengikuti strategi konten terstruktur dengan <strong>17 pilar yang berputar</strong> — 5 evergreen, 5 AI money, dan 7 pilar krisis berdasarkan dampak ekonomi perang Iran-AS Juni 2026 terhadap Indonesia.</p>
+
+  <div class="code-block">
+    <code><span class="code-comment"># Logika pergantian bahasa — dari content.py</span>
+def get_language() -> str:
+    iso_day = datetime.now().isoweekday()   <span class="code-comment"># 1=Sen … 7=Min</span>
+    return <span class="code-val">"Bahasa Indonesia"</span> if iso_day % 2 == 1 else <span class="code-val">"English"</span>
+
+<span class="code-comment"># Hasilnya:</span>
+<span class="code-comment"># Senin, Rabu, Jumat, Minggu → 🇮🇩 Bahasa Indonesia</span>
+<span class="code-comment"># Selasa, Kamis, Sabtu       → 🌐 English</span></code>
+  </div>
+
+  <!-- BLUR LOCK SECTION -->
+  <div class="blur-lock">
+    <div class="blur-content">
+      <h2 class="ch-h3">Yang Akan Kamu Miliki Setelah Bab 7</h2>
+      <p class="ch-p">Di akhir panduan ini, setup kamu akan terlihat seperti ini — dua repositori GitHub yang melakukan semua pekerjaan untukmu secara otomatis:</p>
+      <div class="code-block">
+        <code>instagram-agent/  (Repo Private)
+  ├── agent berjalan harian via GitHub Actions ✅
+  ├── posting Bahasa Indonesia + Inggris ✅
+  ├── promosikan 15 platform afiliasi ✅
+  ├── 7 gambar unik per carousel ✅
+  └── auto cross-post ke Facebook Page ✅
+
+links/  (Repo Publik — GitHub Pages)
+  └── halaman bio link bilingual yang cantik ✅
+      di-host gratis di github.io/links/</code>
+      </div>
+      <p class="ch-p">Jadwal posting harian sudah dikonfigurasi ke waktu Jakarta (WIB) dan posting pada jam engagement tertinggi. GitHub Actions cron jobs menangani semuanya secara otomatis. Di Bab 2 kita mulai dengan 7 akun yang perlu dibuat — semua gratis kecuali Claude API.</p>
+    </div>
+
+    <div class="lock-overlay">
+      <div class="lock-icon">🔒</div>
+      <div class="lock-title">Lanjutkan di Ebook Lengkap</div>
+      <p class="lock-desc">Dapatkan semua 7 bab — panduan Meta token lengkap, setiap solusi error, testing lokal, deploy ke GitHub, dan setup afiliasi.</p>
+      <div class="lock-price">
+        <span class="lock-price-strike">Rp249.000</span>
+        <span class="lock-price-main">Rp99rb</span>
+        <span class="lock-price-note">sekali bayar</span>
+      </div>
+      <a href="YOUR_PAYMENT_LINK" class="btn-lock-buy">🛒 Beli Sekarang — Rp99.000</a>
+      <a href="index.html" class="btn-lock-back">← Kembali ke halaman utama</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── BOTTOM CTA ── -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <h2>Sudah cukup yakin?<br><em>Mulai sekarang.</em></h2>
+    <p>Semua yang kamu baca di Bab 1 ini hanyalah permulaan. 6 bab berikutnya membawamu dari setup akun hingga agent live di Instagram — dengan setiap error dan solusinya terdokumentasi.</p>
+    <div class="bottom-cta-btns">
+      <a href="YOUR_PAYMENT_LINK" class="btn-bottom-buy">🛒 Beli Sekarang — Rp99.000</a>
+      <a href="index.html" class="btn-bottom-back">← Halaman Utama</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── STICKY BAR ── -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-price">
+    <span class="sticky-price-strike">Rp249rb</span>
+    <span class="sticky-price-main">Rp99rb</span>
+  </div>
+  <span class="sticky-label">Instagram Agent Ebook · Akses seumur hidup</span>
+  <a href="YOUR_PAYMENT_LINK" class="sticky-btn">Beli Sekarang →</a>
+</div>
+
+<script>
+  // Sticky bar on scroll
+  const stickyBar = document.getElementById('stickyBar');
+  window.addEventListener('scroll', () => {
+    stickyBar.classList.toggle('visible', window.scrollY > 400);
+  });
+</script>
+</body>
+</html>

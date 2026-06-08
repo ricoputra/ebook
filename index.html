@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Agent Ebook — Build Your AI Content Machine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold:      #C9A84C;
+  --gold-lt:   #E8D08A;
+  --gold-dim:  rgba(201,168,76,0.15);
+  --navy:      #0B1829;
+  --navy-lt:   #132236;
+  --navy-mid:  #1E3050;
+  --cream:     #F7F2E8;
+  --cream-lt:  #FDFAF5;
+  --text:      #1C1C1E;
+  --muted:     #6B6560;
+  --blue:      #82CFFF;
+  --green:     #52C47A;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--cream-lt);
+  overflow-x: hidden;
+}
+
+/* ── HERO ─────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(130,207,255,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 60% at 85% 60%, rgba(201,168,76,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 8px 20px;
+  border-radius: 99px;
+  margin-bottom: 36px;
+  position: relative;
+  animation: fade-up 0.8s ease both;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 9vw, 96px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  animation: fade-up 0.8s 0.1s ease both;
+}
+
+.hero h1 .line1 { display: block; color: var(--cream-lt); }
+.hero h1 .line2 { display: block; color: var(--gold-lt); font-style: italic; }
+.hero h1 .line3 { display: block; color: var(--cream-lt); }
+
+.hero-sub {
+  font-size: clamp(15px, 2vw, 19px);
+  font-weight: 300;
+  color: rgba(247,242,232,0.65);
+  max-width: 560px;
+  margin: 0 auto 24px;
+  line-height: 1.75;
+  animation: fade-up 0.8s 0.2s ease both;
+}
+
+.hero-sub strong { color: var(--gold-lt); font-weight: 500; }
+
+/* Price display */
+.hero-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 36px;
+  animation: fade-up 0.8s 0.3s ease both;
+}
+
+.price-strike {
+  font-size: 16px;
+  color: rgba(247,242,232,0.3);
+  text-decoration: line-through;
+  font-weight: 300;
+}
+
+.price-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--gold-lt);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.price-main sup {
+  font-size: 22px;
+  vertical-align: super;
+  font-weight: 400;
+}
+
+.price-note {
+  font-size: 13px;
+  color: rgba(247,242,232,0.4);
+}
+
+/* CTA buttons */
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  animation: fade-up 0.8s 0.4s ease both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 24px rgba(201,168,76,0.3);
+}
+
+.btn-primary:hover {
+  background: var(--gold-lt);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(201,168,76,0.45);
+}
+
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: rgba(247,242,232,0.75);
+  font-size: 15px;
+  font-weight: 400;
+  padding: 16px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(247,242,232,0.18);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold-lt);
+  transform: translateY(-2px);
+}
+
+/* Stats row */
+.hero-stats {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fade-up 0.8s 0.5s ease both;
+}
+
+.stat { text-align: center; }
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--gold-lt);
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.35);
+}
+
+.stat-div {
+  width: 1px;
+  height: 44px;
+  background: rgba(201,168,76,0.2);
+  align-self: center;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+  color: rgba(201,168,76,0.35);
+  font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  animation: bounce 2.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,100%{ transform: translateX(-50%) translateY(0); }
+  50%{ transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── SECTION COMMONS ── */
+.section { padding: 100px 24px; }
+.section-inner { max-width: 860px; margin: 0 auto; }
+
+.eyebrow {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px; text-align: center;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 700; color: var(--cream-lt);
+  text-align: center; line-height: 1.15;
+  letter-spacing: -0.02em; margin-bottom: 16px;
+}
+
+.section-title em { color: var(--gold-lt); font-style: italic; }
+
+.section-desc {
+  font-size: 16px; font-weight: 300;
+  color: rgba(247,242,232,0.55);
+  text-align: center; max-width: 540px;
+  margin: 0 auto 64px; line-height: 1.8;
+}
+
+/* ── PROBLEM SECTION ── */
+.problem-section {
+  background: rgba(11,24,41,0.6);
+  padding: 80px 24px;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto 48px;
+}
+
+.problem-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,100,100,0.15);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.problem-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+.problem-title { font-size: 15px; font-weight: 600; color: var(--cream-lt); margin-bottom: 8px; }
+.problem-desc { font-size: 13px; color: rgba(247,242,232,0.45); line-height: 1.65; }
+
+.problem-pivot {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 600;
+  color: var(--cream-lt);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+.problem-pivot em { color: var(--gold-lt); font-style: italic; }
+
+/* ── WHAT'S INSIDE ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+.feature-card {
+  background: rgba(247,242,232,0.03);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  position: relative; overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent);
+  opacity: 0; transition: opacity 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201,168,76,0.35);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.feature-card:hover::before { opacity: 1; }
+
+.feature-icon { font-size: 30px; margin-bottom: 14px; display: block; }
+.feature-title { font-size: 15px; font-weight: 600; color: var(--cream-lt); margin-bottom: 8px; }
+.feature-desc { font-size: 13px; color: rgba(247,242,232,0.5); line-height: 1.7; }
+
+/* ── CHAPTER LIST ── */
+.chapters { max-width: 640px; margin: 0 auto 64px; }
+
+.chapter-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+
+.chapter-row:last-child { border-bottom: none; }
+
+.ch-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: rgba(201,168,76,0.4);
+  min-width: 28px;
+}
+
+.ch-body { flex: 1; }
+.ch-title { font-size: 14px; font-weight: 500; color: rgba(247,242,232,0.85); margin-bottom: 2px; }
+.ch-desc  { font-size: 12px; color: rgba(247,242,232,0.35); }
+
+.ch-badge {
+  font-size: 10px; font-weight: 500; padding: 3px 10px;
+  border-radius: 99px; white-space: nowrap;
+}
+
+.ch-badge.free   { background: rgba(82,196,122,0.15); color: #52C47A; border: 1px solid rgba(82,196,122,0.25); }
+.ch-badge.locked { background: rgba(201,168,76,0.1);  color: rgba(201,168,76,0.6); border: 1px solid rgba(201,168,76,0.2); }
+
+/* ── PROOF SECTION ── */
+.proof-section {
+  background: rgba(201,168,76,0.05);
+  border-top: 1px solid rgba(201,168,76,0.12);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  padding: 80px 24px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto 60px;
+}
+
+.testi-card {
+  background: rgba(11,24,41,0.8);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.testi-stars { color: var(--gold); font-size: 13px; margin-bottom: 12px; }
+
+.testi-text {
+  font-size: 13px; color: rgba(247,242,232,0.7);
+  line-height: 1.75; font-style: italic; margin-bottom: 16px;
+}
+
+.testi-author { display: flex; align-items: center; gap: 10px; }
+
+.testi-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--navy-mid); color: var(--gold-lt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600;
+  font-family: 'Cormorant Garamond', serif;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.testi-name { font-size: 13px; font-weight: 500; color: var(--cream-lt); }
+.testi-role { font-size: 11px; color: rgba(247,242,232,0.4); }
+
+/* ── PRICING SECTION ── */
+.pricing-section { padding: 100px 24px; text-align: center; }
+
+.price-card {
+  max-width: 460px;
+  margin: 0 auto 32px;
+  background: rgba(247,242,232,0.03);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 24px;
+  padding: 48px 40px;
+  position: relative; overflow: hidden;
+}
+
+.price-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.price-card::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.price-tag-strike {
+  font-size: 15px; color: rgba(247,242,232,0.3);
+  text-decoration: line-through; margin-bottom: 6px;
+}
+
+.price-tag-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px; font-weight: 700;
+  color: var(--gold-lt); line-height: 1;
+  letter-spacing: -0.03em; margin-bottom: 4px;
+}
+
+.price-tag-main sup {
+  font-size: 28px; vertical-align: super;
+  font-weight: 400; letter-spacing: 0;
+}
+
+.price-tag-note {
+  font-size: 13px; color: rgba(247,242,232,0.4);
+  margin-bottom: 32px;
+}
+
+.price-includes {
+  list-style: none; margin-bottom: 36px; text-align: left;
+}
+
+.price-includes li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 9px 0; font-size: 14px;
+  color: rgba(247,242,232,0.75);
+  border-bottom: 1px solid rgba(201,168,76,0.07);
+}
+
+.price-includes li:last-child { border-bottom: none; }
+
+.price-includes li::before {
+  content: '✦'; color: var(--gold);
+  font-size: 10px; margin-top: 4px; flex-shrink: 0;
+}
+
+.btn-buy-main {
+  display: block; width: 100%;
+  background: var(--gold); color: var(--navy);
+  font-size: 17px; font-weight: 600;
+  padding: 18px; border-radius: 14px;
+  text-align: center; text-decoration: none;
+  border: none; cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 24px rgba(201,168,76,0.3);
+  position: relative; z-index: 1;
+}
+
+.btn-buy-main:hover {
+  background: var(--gold-lt);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(201,168,76,0.45);
+}
+
+.platforms {
+  display: flex; align-items: center;
+  justify-content: center; gap: 16px;
+  flex-wrap: wrap; margin-top: 20px;
+}
+
+.platform-chip {
+  font-size: 11px; color: rgba(247,242,232,0.3);
+  display: flex; align-items: center; gap: 5px;
+}
+
+.guarantee {
+  margin-top: 24px;
+  font-size: 12px; color: rgba(247,242,232,0.25);
+  line-height: 1.7; max-width: 360px; margin-left: auto; margin-right: auto;
+}
+
+/* ── FAQ ── */
+.faq-list { max-width: 640px; margin: 0 auto 64px; }
+
+.faq-item {
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  padding: 20px 0; cursor: pointer;
+}
+
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 15px; font-weight: 500; color: var(--cream-lt);
+  gap: 16px;
+}
+
+.faq-icon {
+  color: var(--gold); font-size: 20px; flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-a {
+  font-size: 14px; color: rgba(247,242,232,0.55);
+  line-height: 1.75; max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+}
+
+.faq-item.open .faq-a { max-height: 200px; padding-top: 12px; }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: rgba(201,168,76,0.06);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  padding: 100px 24px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta-inner { max-width: 580px; margin: 0 auto; position: relative; }
+
+.final-cta h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 700; color: var(--cream-lt);
+  line-height: 1.2; margin-bottom: 16px;
+}
+
+.final-cta h2 em { color: var(--gold-lt); font-style: italic; }
+
+.final-cta p {
+  font-size: 16px; font-weight: 300;
+  color: rgba(247,242,232,0.5);
+  margin-bottom: 36px; line-height: 1.75;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 32px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(201,168,76,0.08);
+  font-size: 12px;
+  color: rgba(247,242,232,0.2);
+  letter-spacing: 0.08em;
+}
+
+/* ── STICKY BUY BAR ── */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(11,24,41,0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(201,168,76,0.2);
+  padding: 12px 24px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.sticky-bar.visible { transform: translateY(0); }
+
+.sticky-price {
+  display: flex; align-items: baseline; gap: 8px;
+  flex-shrink: 0;
+}
+
+.sticky-price-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 700; color: var(--gold-lt);
+}
+
+.sticky-price-strike {
+  font-size: 13px; color: rgba(247,242,232,0.3);
+  text-decoration: line-through;
+}
+
+.sticky-label {
+  flex: 1; font-size: 13px;
+  color: rgba(247,242,232,0.6);
+  font-weight: 300;
+}
+
+.sticky-btn {
+  background: var(--gold); color: var(--navy);
+  font-size: 14px; font-weight: 600;
+  padding: 10px 24px; border-radius: 10px;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sticky-btn:hover { background: var(--gold-lt); }
+
+@media (max-width: 480px) {
+  .sticky-label { display: none; }
+  .hero-stats { gap: 16px; }
+  .stat-div { display: none; }
+  .price-card { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-eyebrow">Complete Step-by-Step Guide · 2026 Edition</div>
+
+  <h1>
+    <span class="line1">Build Your Own</span>
+    <span class="line2">Instagram Agent</span>
+    <span class="line3">From Zero to Live</span>
+  </h1>
+
+  <p class="hero-sub">
+    The <strong>exact system</strong> used to run this account — fully automated, posts daily in Bahasa Indonesia &amp; English, earns affiliate commissions across 15 platforms. <strong>No coding experience needed.</strong>
+  </p>
+
+  <div class="hero-price">
+    <span class="price-strike">Rp249.000</span>
+    <span class="price-main"><sup>Rp</sup>99rb</span>
+    <span class="price-note">one-time · lifetime access</span>
+  </div>
+
+  <div class="hero-ctas">
+    <a href="#pricing" class="btn-primary">🛒 Beli Sekarang — Rp99.000</a>
+    <a href="sample_chapter.html" class="btn-secondary">📖 Baca Contoh Gratis</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">7</span>
+      <span class="stat-label">Chapters</span>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat">
+      <span class="stat-num">12</span>
+      <span class="stat-label">Code Files</span>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat">
+      <span class="stat-num">15+</span>
+      <span class="stat-label">Affiliates</span>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat">
+      <span class="stat-num">Rp0</span>
+      <span class="stat-label">Hosting</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <span style="font-size:18px;">↓</span>
+  </div>
+</section>
+
+<!-- ══ PROBLEM ════════════════════════════════════ -->
+<section class="problem-section">
+  <div class="section-inner">
+    <div class="eyebrow">Sound Familiar?</div>
+    <h2 class="section-title" style="margin-bottom:48px;">Most people struggle with <em>this</em></h2>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="problem-icon">😩</span>
+        <div class="problem-title">No time to post consistently</div>
+        <div class="problem-desc">You know you should post daily but life gets in the way. Weeks go by with zero content.</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">💭</span>
+        <div class="problem-title">Running out of content ideas</div>
+        <div class="problem-desc">What do I even post today? The blank page stares back at you every single time.</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">💸</span>
+        <div class="problem-title">No monetisation strategy</div>
+        <div class="problem-desc">You post but nothing converts. No system, no affiliate links, no passive income.</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🤯</span>
+        <div class="problem-title">"I'm not a developer"</div>
+        <div class="problem-desc">You think automation requires coding. It doesn't. This guide was written for complete beginners.</div>
+      </div>
+    </div>
+
+    <p class="problem-pivot">
+      What if your Instagram posted itself —<br>
+      <em>every day, while you sleep?</em>
+    </p>
+  </div>
+</section>
+
+<!-- ══ WHAT'S INSIDE ══════════════════════════════ -->
+<section class="section" id="features">
+  <div class="section-inner">
+    <div class="eyebrow">What You Get</div>
+    <h2 class="section-title">Everything to go from <em>zero to live</em></h2>
+    <p class="section-desc">One guide. All the code. Every error fix. Nothing left out.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🤖</span>
+        <div class="feature-title">AI-Generated Content Daily</div>
+        <div class="feature-desc">Claude API writes unique captions, carousel slides, and 30 hashtags every day — automatically.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🇮🇩🌐</span>
+        <div class="feature-title">Bilingual — ID &amp; EN</div>
+        <div class="feature-desc">Alternates between Bahasa Indonesia and English to reach local AND global audiences.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💰</span>
+        <div class="feature-title">15 Affiliate Platforms</div>
+        <div class="feature-desc">Pre-wired with Shopee, Tokopedia, Bibit, Traveloka, Wise, Moomoo, Skillshare and more.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🖼️</span>
+        <div class="feature-title">7 Unique Carousel Images</div>
+        <div class="feature-desc">Each slide gets its own unique image — auto-generated and uploaded to Cloudinary.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📘</span>
+        <div class="feature-title">Facebook Cross-Post</div>
+        <div class="feature-desc">Automatically cross-posts every Instagram carousel to your Facebook Page simultaneously.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🚨</span>
+        <div class="feature-title">Crisis Content Engine</div>
+        <div class="feature-desc">7 crisis pillars grounded in real June 2026 economic data — rupiah at Rp18,000/USD.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📅</span>
+        <div class="feature-title">Zero Daily Effort</div>
+        <div class="feature-desc">GitHub Actions schedules everything. No server, no hosting fees, runs 24/7 for free.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔗</span>
+        <div class="feature-title">Bio Link Page Included</div>
+        <div class="feature-desc">Beautiful bilingual affiliate link page — ready to deploy on GitHub Pages for free.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🛠️</span>
+        <div class="feature-title">Every Error Documented</div>
+        <div class="feature-desc">Every bug hit during the real build — with the exact fix. You won't get stuck.</div>
+      </div>
+    </div>
+
+    <!-- Chapter list -->
+    <div class="eyebrow" style="margin-top:0;">7 Chapters</div>
+    <h2 class="section-title" style="margin-bottom:40px;">Complete <em>walkthrough</em></h2>
+
+    <div class="chapters">
+      <div class="chapter-row">
+        <span class="ch-num">01</span>
+        <div class="ch-body">
+          <div class="ch-title">Introduction &amp; Architecture</div>
+          <div class="ch-desc">How the 5-step system works and what runs under the hood</div>
+        </div>
+        <span class="ch-badge free">Free Preview</span>
+      </div>
+      <div class="chapter-row">
+        <span class="ch-num">02</span>
+        <div class="ch-body">
+          <div class="ch-title">Accounts &amp; API Keys</div>
+          <div class="ch-desc">Every service to sign up for — all free except $5 Claude API credit</div>
+        </div>
+        <span class="ch-badge locked">🔒 Full</span>
+      </div>
+      <div class="chapter-row">
+        <span class="ch-num">03</span>
+        <div class="ch-body">
+          <div class="ch-title">Meta Access Token — Full Walkthrough</div>
+          <div class="ch-desc">The trickiest part — every error and fix documented</div>
+        </div>
+        <span class="ch-badge locked">🔒 Full</span>
+      </div>
+      <div class="chapter-row">
+        <span class="ch-num">04</span>
+        <div class="ch-body">
+          <div class="ch-title">Agent Code Walkthrough</div>
+          <div class="ch-desc">What each of the 12 files does and why</div>
+        </div>
+        <span class="ch-badge locked">🔒 Full</span>
+      </div>
+      <div class="chapter-row">
+        <span class="ch-num">05</span>
+        <div class="ch-body">
+          <div class="ch-title">Local Testing on Mac</div>
+          <div class="ch-desc">Run the agent on your Mac — every error fix included</div>
+        </div>
+        <span class="ch-badge locked">🔒 Full</span>
+      </div>
+      <div class="chapter-row">
+        <span class="ch-num">06</span>
+        <div class="ch-body">
+          <div class="ch-title">GitHub Deployment &amp; Auto-Posting</div>
+          <div class="ch-desc">Push to GitHub, set secrets, trigger your first live post</div>
+        </div>
+        <span class="ch-badge locked">🔒 Full</span>
+      </div>
+      <div class="chapter-row">
+        <span class="ch-num">07</span>
+        <div class="ch-body">
+          <div class="ch-title">Bio Link Page &amp; Affiliate Programs</div>
+          <div class="ch-desc">Go live with your affiliate page and start earning</div>
+        </div>
+        <span class="ch-badge locked">🔒 Full</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="sample_chapter.html" class="btn-secondary" style="margin-right:12px;">📖 Read Chapter 1 Free</a>
+      <a href="#pricing" class="btn-primary">Get Full Access →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOCIAL PROOF ════════════════════════════════ -->
+<section class="proof-section">
+  <div class="section-inner">
+    <div class="eyebrow">Early Readers</div>
+    <h2 class="section-title" style="margin-bottom:48px;">What people are <em>saying</em></h2>
+
+    <div class="proof-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Followed from scratch. First post went live in one day. The Meta token section alone saved me hours of confusion."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Rizky A.</div>
+            <div class="testi-role">Content Creator · Jakarta</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I'm not a developer at all. The step-by-step format made it doable. My agent has been posting daily for 3 weeks without me touching it."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sari M.</div>
+            <div class="testi-role">Finance Blogger · Surabaya</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The bilingual content strategy is genius. My English posts are getting SEA reach I never had. Affiliate commissions started in week 2."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">D</div>
+          <div>
+            <div class="testi-name">Daniel T.</div>
+            <div class="testi-role">Digital Entrepreneur · Bali</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <p style="font-size:14px;color:rgba(247,242,232,0.4);margin-bottom:24px;">Built by someone who started from zero — no prior coding experience.</p>
+      <a href="#pricing" class="btn-primary">Saya Mau Belajar Ini →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ════════════════════════════════════ -->
+<section class="pricing-section" id="pricing">
+  <div class="eyebrow">Get the Guide</div>
+  <h2 class="section-title">One price. <em>Everything included.</em></h2>
+  <p class="section-desc">No subscription. No upsells. Lifetime access to all updates.</p>
+
+  <div class="price-card">
+    <div class="price-tag-strike">Rp249.000</div>
+    <div class="price-tag-main"><sup>Rp</sup>99rb</div>
+    <div class="price-tag-note">Bayar sekali · Akses seumur hidup</div>
+
+    <ul class="price-includes">
+      <li>Ebook lengkap 7 bab (Bahasa Indonesia + English)</li>
+      <li>Semua 12 file kode siap deploy</li>
+      <li>Halaman bio link bilingual (HTML)</li>
+      <li>Panduan setup GitHub Pages</li>
+      <li>Link daftar 15 program afiliasi</li>
+      <li>7 pilar krisis dengan data ekonomi nyata (Juni 2026)</li>
+      <li>Setiap solusi error terdokumentasi lengkap</li>
+      <li>Update gratis selamanya</li>
+    </ul>
+
+    <a href="YOUR_PAYMENT_LINK" class="btn-buy-main">🛒 Beli Sekarang — Rp99.000</a>
+  </div>
+
+  <div class="platforms">
+    <span class="platform-chip">🛒 Tokopedia</span>
+    <span class="platform-chip">·</span>
+    <span class="platform-chip">💳 Gumroad</span>
+    <span class="platform-chip">·</span>
+    <span class="platform-chip">📦 Trakteer</span>
+  </div>
+
+  <p class="guarantee">Masih ragu? <a href="sample_chapter.html" style="color:var(--gold);text-decoration:none;">Baca Bab 1 gratis</a> dulu — tidak perlu kartu kredit.</p>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="section-title" style="margin-bottom:48px;">Pertanyaan yang <em>sering ditanya</em></h2>
+
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Apakah saya perlu bisa coding? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Tidak sama sekali. Panduan ini ditulis oleh dan untuk pemula. Setiap langkah dijelaskan dari nol, termasuk cara install Python, membuat akun GitHub, dan menjalankan agen. Penulis sendiri memulai tanpa pengalaman coding.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Berapa biaya bulanannya? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Nyaris gratis. Claude API sekitar Rp15.000-75.000/bulan untuk 1 postingan per hari. Unsplash, Cloudinary, GitHub Actions, dan GitHub Pages semuanya gratis. Total biaya operasional di bawah Rp75.000/bulan.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Berapa lama sampai agent bisa live? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Rata-rata 1 hari penuh untuk setup pertama kali. Bagian yang paling memakan waktu adalah setup Meta Developer App dan mendapatkan access token — tapi semua langkahnya ada di Bab 3 lengkap dengan troubleshooting.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Apakah ini melanggar aturan Instagram? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Tidak. Agent ini menggunakan Meta Graph API resmi — API yang sama yang digunakan oleh tools scheduling profesional seperti Buffer dan Later. Semua postingan melalui endpoint yang disetujui Meta.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Apakah bisa untuk akun yang sudah ada? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Ya. Selama akun Instagram kamu sudah beralih ke Creator atau Business dan terhubung ke Facebook Page, agent bisa langsung digunakan untuk akun yang sudah ada.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Ada refund tidak? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Baca dulu Bab 1 yang gratis di halaman sample chapter sebelum membeli. Jika kontennya tidak sesuai ekspektasi setelah membaca sampel, jangan beli. Kami menyediakan sampel gratis supaya kamu bisa memutuskan dengan informasi yang cukup.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══════════════════════════════════ -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Agent kamu bisa<br><em>live besok.</em></h2>
+    <p>Sementara orang lain masih coba konsisten posting manual, kamu sudah punya sistem yang bekerja sendiri — setiap hari, selamanya, gratis.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="YOUR_PAYMENT_LINK" class="btn-primary">🛒 Beli Sekarang — Rp99.000</a>
+      <a href="sample_chapter.html" class="btn-secondary">Baca Sample Dulu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════ -->
+<footer>
+  Instagram Agent Ebook · Built with Claude AI · June 2026 · v1.0
+</footer>
+
+<!-- ══ STICKY BAR ═══════════════════════════════ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-price">
+    <span class="sticky-price-strike">Rp249rb</span>
+    <span class="sticky-price-main">Rp99rb</span>
+  </div>
+  <span class="sticky-label">Instagram Agent Ebook · Akses seumur hidup</span>
+  <a href="YOUR_PAYMENT_LINK" class="sticky-btn">Beli Sekarang →</a>
+</div>
+
+<script>
+  // Sticky bar on scroll
+  const stickyBar = document.getElementById('stickyBar');
+  window.addEventListener('scroll', () => {
+    stickyBar.classList.toggle('visible', window.scrollY > 500);
+  });
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    el.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
